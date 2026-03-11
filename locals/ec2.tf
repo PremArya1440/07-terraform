@@ -1,13 +1,14 @@
 resource "aws_instance" "example" { #second these steps 
-  ami                    = "ami-0220d79f3f480ecf5"
-  instance_type          = "t3.micro"
+  ami                    = local.ami
+  instance_type          = local.instance_type  
   vpc_security_group_ids = [aws_security_group.allow_tls.id] #VPC Security Group ID is the unique identifier (sg-xxxx) used to reference and attach a security group to AWS resources.
-
-  tags = {  
-    Name    = local.instance_name
-    Project = "roboshop"
+   
+   tags = local.ec2_final_tags
+#   tags = {  
+#     Name    = local.instance_name
+#     Project = "roboshop"
   }
-}
+
 
 resource "aws_security_group" "allow_tls"{ #first these steps
   name        = "allow-dynamic-terraform-remote-state" # this is for AWS account
