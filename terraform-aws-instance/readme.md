@@ -1,8 +1,8 @@
-#Terraform AWS instance
+##Terraform AWS instance
 
 This module create EC2 instance in aws.
 
-#inputs
+##inputs
 
 * project -(Required) string type, user must provide project name ex. roboshop, expense, etc
 * environment - (Required) string type, user must provide environment ex. dev, uat, pod, etv.
